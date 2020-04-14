@@ -237,88 +237,7 @@ figure3=df.corr(method='spearman').iplot(asFigure=True,kind='heatmap',title="Spe
 figure4=df.iplot(asFigure=True, title = "Vanguard ETFs 1 Mo normalized", xTitle="Time", yTitle="Normalized Price")
 
 
-#YTD
-data = yf.download("EDV BIV VGIT BLV VGLT VMBS BSV VTIP VGSH BND VCIT VCLT VCSH VTC VTEB VIG ESGV VUG VYM VV MGC MGK MGV VONE VONG VONV VTHR VOO VOOG VOOV VTI VTV VXF VO VOT VOE IVOO IVOG IVOV VTWO VTWG VTWV VIOO VIOG VIOV VB VBK VBR BNDW BNDX VWOB VT VSGX VEU VSS VEA VGK VPL VNQI VIGI VYMI VXUS VWO VOX VCR VDC VDE VFH VHT VIS VGT VAW VNQ VPU", period = "YTD")
 
-dfdata = pd.DataFrame(data=data)
-
-#print(dfdata.columns)
-#print(dfdata['Adj Close', 'BNDW'])
-
-
-#print plots of different classes
-
-
-#US bond ETFs
-
-USbondETF = { 'EDV': dfdata['Close', 'EDV'], 'BIV': dfdata['Close', 'BIV'], 'VGIT': dfdata['Close', 'VGIT'], 'BLV': dfdata['Close', 'BLV'], 'VGLT': dfdata['Close', 'VGLT'], 'VMBS': dfdata['Close', 'VMBS'], 'BSV': dfdata['Close', 'BSV'], 'VTIP': dfdata['Close', 'VTIP'], 'VGSH': dfdata['Close', 'VGSH'], 'BND': dfdata['Close', 'BND'], 'VCIT': dfdata['Close', 'VCIT'], 'VCLT': dfdata['Close', 'VCLT'], 'VCSH': dfdata['Close', 'VCSH'], 'VTC': dfdata['Close', 'VTC'], 'VTEB': dfdata['Close', 'VTEB']}
-dfUSbondETF = pd.DataFrame(data=USbondETF)
-
-normalized_dfUSbondETF=(dfUSbondETF)/(dfUSbondETF.max())
-
-
-#US stock ETFs
-
-USstockETF = { 'VIG': dfdata['Close', 'VIG'], 'ESGV': dfdata['Close', 'ESGV'], 'VUG': dfdata['Close', 'VUG'], 'VYM': dfdata['Close', 'VYM'], 'VV': dfdata['Close', 'VV'], 'MGC': dfdata['Close', 'MGC'], 'MGK': dfdata['Close', 'MGK'], 'MGV': dfdata['Close', 'MGV'], 'VONE': dfdata['Close', 'VONE'], 'VONG': dfdata['Close', 'VONG'], 'VONV': dfdata['Close', 'VONV'], 'VTHR': dfdata['Close', 'VTHR'], 'VOO': dfdata['Close', 'VOO'], 'VOOG': dfdata['Close', 'VOOG'], 'VOOV': dfdata['Close', 'VOOV'], 'VTI': dfdata['Close', 'VTI'], 'VTV': dfdata['Close', 'VTV'],'VXF': dfdata['Close', 'VXF'],'VO': dfdata['Close', 'VO'],'VOT': dfdata['Close', 'VOT'],'VOE': dfdata['Close', 'VOE'],'IVOO': dfdata['Close', 'IVOO'],'IVOG': dfdata['Close', 'IVOG'],'IVOV': dfdata['Close', 'IVOV'],'VTWO': dfdata['Close', 'VTWO'],'VTWG': dfdata['Close', 'VTWG'],'VTWV': dfdata['Close', 'VTWV'],'VIOO': dfdata['Close', 'VIOO'],'VIOG': dfdata['Close', 'VIOG'],'VIOV': dfdata['Close', 'VIOV'],'VB': dfdata['Close', 'VB'],'VBK': dfdata['Close', 'VBK'],'VBR': dfdata['Close', 'VBR']}
-dfUSstockETF = pd.DataFrame(data=USstockETF)
-
-normalized_dfUSstockETF=(dfUSstockETF)/(dfUSstockETF.max())
-
-
-#International Bond ETF
-
-INTbondETF = { 'BNDW': dfdata['Close', 'BNDW'], 'BNDX': dfdata['Close', 'BNDX'], 'VWOB': dfdata['Close', 'VWOB']}
-dfINTbondETF = pd.DataFrame(data=INTbondETF)
-
-normalized_dfINTbondETF=(dfINTbondETF)/(dfINTbondETF.max())
-
-
-
-#INT stock ETFs
-
-INTstockETF = { 'VSGX': dfdata['Close', 'VSGX'], 'VEU': dfdata['Close', 'VEU'], 'VSS': dfdata['Close', 'VSS'], 'VEA': dfdata['Close', 'VEA'], 'VGK': dfdata['Close', 'VGK'], 'VPL': dfdata['Close', 'VPL'], 'VNQI': dfdata['Close', 'VNQI'], 'VIGI': dfdata['Close', 'VIGI'], 'VYMI': dfdata['Close', 'VYMI'], 'VXUS': dfdata['Close', 'VXUS'], 'VWO': dfdata['Close', 'VWO']}
-dfINTstockETF = pd.DataFrame(data=INTstockETF)
-
-normalized_dfINTstockETF=(dfINTstockETF)/(dfINTstockETF.max())
-
-
-#US stock Sector ETFs
-
-USstocksectorETF = { 'VOX': dfdata['Close', 'VOX'], 'VCR': dfdata['Close', 'VCR'], 'VDC': dfdata['Close', 'VDC'], 'VDE': dfdata['Close', 'VDE'], 'VFH': dfdata['Close', 'VFH'], 'VHT': dfdata['Close', 'VHT'], 'VIS': dfdata['Close', 'VIS'], 'VGT': dfdata['Close', 'VGT'], 'VAW': dfdata['Close', 'VAW'], 'VNQ': dfdata['Close', 'VNQ'], 'VPU': dfdata['Close', 'VPU']}
-dfUSstocksectorETF = pd.DataFrame(data=USstocksectorETF)
-
-normalized_dfUSstocksectorETF=(dfUSstocksectorETF)/(dfUSstocksectorETF.max())
-
-
-
-#Total Vanguard ETFs
-
-TOTALETF=pd.concat([dfUSbondETF, dfUSbondETF, dfINTstockETF, dfINTbondETF, dfUSstocksectorETF], axis=1)
-
-#USbondETF+USstockETF+INTbondETF+INTstockETF+USstocksectorETF
-
-dfTOTALETF = pd.DataFrame(data=TOTALETF)
-
-normalized_dfTOTALETF=(dfTOTALETF)/(dfTOTALETF.max())
-
-#Total Vanguard ETFs2
-
-
-TOTALETF2={'EDV': dfdata['Close', 'EDV'], 'BIV': dfdata['Close', 'BIV'], 'VGIT': dfdata['Close', 'VGIT'], 'BLV': dfdata['Close', 'BLV'], 'VGLT': dfdata['Close', 'VGLT'], 'VMBS': dfdata['Close', 'VMBS'], 'BSV': dfdata['Close', 'BSV'], 'VTIP': dfdata['Close', 'VTIP'], 'VGSH': dfdata['Close', 'VGSH'], 'BND': dfdata['Close', 'BND'], 'VCIT': dfdata['Close', 'VCIT'], 'VCLT': dfdata['Close', 'VCLT'], 'VCSH': dfdata['Close', 'VCSH'], 'VTC': dfdata['Close', 'VTC'], 'VTEB': dfdata['Close', 'VTEB'], 'VIG': dfdata['Close', 'VIG'], 'ESGV': dfdata['Close', 'ESGV'], 'VUG': dfdata['Close', 'VUG'], 'VYM': dfdata['Close', 'VYM'], 'VV': dfdata['Close', 'VV'], 'MGC': dfdata['Close', 'MGC'], 'MGK': dfdata['Close', 'MGK'], 'MGV': dfdata['Close', 'MGV'], 'VONE': dfdata['Close', 'VONE'], 'VONG': dfdata['Close', 'VONG'], 'VONV': dfdata['Close', 'VONV'], 'VTHR': dfdata['Close', 'VTHR'], 'VOO': dfdata['Close', 'VOO'], 'VOOG': dfdata['Close', 'VOOG'], 'VOOV': dfdata['Close', 'VOOV'], 'VTI': dfdata['Close', 'VTI'], 'VTV': dfdata['Close', 'VTV'],'VXF': dfdata['Close', 'VXF'],'VO': dfdata['Close', 'VO'],'VOT': dfdata['Close', 'VOT'],'VOE': dfdata['Close', 'VOE'],'IVOO': dfdata['Close', 'IVOO'],'IVOG': dfdata['Close', 'IVOG'],'IVOV': dfdata['Close', 'IVOV'],'VTWO': dfdata['Close', 'VTWO'],'VTWG': dfdata['Close', 'VTWG'],'VTWV': dfdata['Close', 'VTWV'],'VIOO': dfdata['Close', 'VIOO'],'VIOG': dfdata['Close', 'VIOG'],'VIOV': dfdata['Close', 'VIOV'],'VB': dfdata['Close', 'VB'],'VBK': dfdata['Close', 'VBK'],'VBR': dfdata['Close', 'VBR'], 'BNDW': dfdata['Close', 'BNDW'], 'BNDX': dfdata['Close', 'BNDX'], 'VWOB': dfdata['Close', 'VWOB'],'VSGX': dfdata['Close', 'VSGX'], 'VEU': dfdata['Close', 'VEU'], 'VSS': dfdata['Close', 'VSS'], 'VEA': dfdata['Close', 'VEA'], 'VGK': dfdata['Close', 'VGK'], 'VPL': dfdata['Close', 'VPL'], 'VNQI': dfdata['Close', 'VNQI'], 'VIGI': dfdata['Close', 'VIGI'], 'VYMI': dfdata['Close', 'VYMI'], 'VXUS': dfdata['Close', 'VXUS'], 'VWO': dfdata['Close', 'VWO'],'VOX': dfdata['Close', 'VOX'], 'VCR': dfdata['Close', 'VCR'], 'VDC': dfdata['Close', 'VDC'], 'VDE': dfdata['Close', 'VDE'], 'VFH': dfdata['Close', 'VFH'], 'VHT': dfdata['Close', 'VHT'], 'VIS': dfdata['Close', 'VIS'], 'VGT': dfdata['Close', 'VGT'], 'VAW': dfdata['Close', 'VAW'], 'VNQ': dfdata['Close', 'VNQ'], 'VPU': dfdata['Close', 'VPU']}
-
-dfTOTALETF2 = pd.DataFrame(data=TOTALETF2)
-
-normalized_dfTOTALETF2=(dfTOTALETF2)/(dfTOTALETF2.max())
-
-#total
-df=normalized_dfTOTALETF2
-
-#figures for 1 Mo
-
-
-figure5=df.corr(method='spearman').iplot(asFigure=True,kind='heatmap',title="Spearman Total Vanguard ETFs YTD",  filename='SpearmanTotal Vanguard ETFs YTD', colorscale='spectral')
-
-figure6=df.iplot(asFigure=True, title = "Vanguard ETFs YTD normalized", xTitle="Time", yTitle="Normalized Price")
 
 
 import os
@@ -382,27 +301,10 @@ app.layout = html.Div([
 
                 ], className="row"),
                 
-        html.Div([
-                        
-                             html.Div([
-                                 html.H3('YTD all Vanguard ETFs Normalized '),
-                                 dcc.Graph(id='g5', figure=figure6)
-                             ], className="six columns", style={'vertical-align': 'middle', 'width':'100%'}),
 
-                         ], className="row"),
-                         
-        html.Div([
-                       
-                            html.Div([
-                                html.H3('YTD all Vanguard ETFs Normalized Corrrelations'),
-                                dcc.Graph(id='g6', figure=figure5)
-                            ], className="six columns", style={'vertical-align': 'middle', 'width':'100%'}),
-
-                        ], className="row"),
         
         
-        
-        
+    
     
 ])
 
