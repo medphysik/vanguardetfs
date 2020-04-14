@@ -151,7 +151,7 @@ df=normalized_dfTOTALETF2
 
 figure2=df.corr(method='spearman').iplot(asFigure=True,kind='heatmap',title="Spearman Total Vanguard ETFs 1D",  filename='SpearmanTotal Vanguard ETFs 1D', colorscale='spectral')
 
-figure1=df.iplot(asFigure=True, title = "Stocks 1 D normalized", xTitle="Time", yTitle="Normalized Price")
+figure1=df.iplot(asFigure=True, title = "Vanguard ETFs 1 D normalized", xTitle="Time", yTitle="Normalized Price")
 
 #1month
 data = yf.download("EDV BIV VGIT BLV VGLT VMBS BSV VTIP VGSH BND VCIT VCLT VCSH VTC VTEB VIG ESGV VUG VYM VV MGC MGK MGV VONE VONG VONV VTHR VOO VOOG VOOV VTI VTV VXF VO VOT VOE IVOO IVOG IVOV VTWO VTWG VTWV VIOO VIOG VIOV VB VBK VBR BNDW BNDX VWOB VT VSGX VEU VSS VEA VGK VPL VNQI VIGI VYMI VXUS VWO VOX VCR VDC VDE VFH VHT VIS VGT VAW VNQ VPU", period = "1mo")
@@ -234,7 +234,7 @@ df=normalized_dfTOTALETF2
 
 figure3=df.corr(method='spearman').iplot(asFigure=True,kind='heatmap',title="Spearman Total Vanguard ETFs 1Mo",  filename='SpearmanTotal Vanguard ETFs 1Mo', colorscale='spectral')
 
-figure4=df.iplot(asFigure=True, title = "Stocks 1 Mo normalized", xTitle="Time", yTitle="Normalized Price")
+figure4=df.iplot(asFigure=True, title = "Vanguard ETFs 1 Mo normalized", xTitle="Time", yTitle="Normalized Price")
 
 
 #YTD
@@ -318,7 +318,7 @@ df=normalized_dfTOTALETF2
 
 figure5=df.corr(method='spearman').iplot(asFigure=True,kind='heatmap',title="Spearman Total Vanguard ETFs YTD",  filename='SpearmanTotal Vanguard ETFs YTD', colorscale='spectral')
 
-figure6=df.iplot(asFigure=True, title = "Stocks YTD normalized", xTitle="Time", yTitle="Normalized Price")
+figure6=df.iplot(asFigure=True, title = "Vanguard ETFs YTD normalized", xTitle="Time", yTitle="Normalized Price")
 
 
 import os
@@ -349,7 +349,7 @@ app.layout = html.Div([
         html.Div([
        
             html.Div([
-                html.H3('1 Day all Vanguard Stocks Normalized'),
+                html.H3('1 Day all Vanguard ETFs Normalized'),
                 dcc.Graph(id='g1', figure=figure1)
             ], style={'vertical-align': 'middle', 'width':'100%'}),
 
@@ -358,7 +358,7 @@ app.layout = html.Div([
          html.Div([
         
              html.Div([
-                 html.H3('1 Day all Vanguard Stocks Normalized Corrrelations'),
+                 html.H3('1 Day all Vanguard ETFs Normalized Corrrelations'),
                  dcc.Graph(id='g2', figure=figure2)
              ], className="six columns", style={'vertical-align': 'middle', 'width':'100%'}),
 
@@ -367,7 +367,7 @@ app.layout = html.Div([
          html.Div([
                 
                      html.Div([
-                         html.H3('1 Month all Vanguard Stocks Normalized '),
+                         html.H3('1 Month all Vanguard ETFs Normalized '),
                          dcc.Graph(id='g3', figure=figure4)
                      ], className="six columns", style={'vertical-align': 'middle', 'width':'100%'}),
 
@@ -376,7 +376,7 @@ app.layout = html.Div([
         html.Div([
                
                     html.Div([
-                        html.H3('1 Month all Vanguard Stocks Normalized Corrrelations'),
+                        html.H3('1 Month all Vanguard ETFs Normalized Corrrelations'),
                         dcc.Graph(id='g4', figure=figure3)
                     ], className="six columns", style={'vertical-align': 'middle', 'width':'100%'}),
 
@@ -385,7 +385,7 @@ app.layout = html.Div([
         html.Div([
                         
                              html.Div([
-                                 html.H3('YTD all Vanguard Stocks Normalized '),
+                                 html.H3('YTD all Vanguard ETFs Normalized '),
                                  dcc.Graph(id='g5', figure=figure6)
                              ], className="six columns", style={'vertical-align': 'middle', 'width':'100%'}),
 
@@ -394,7 +394,7 @@ app.layout = html.Div([
         html.Div([
                        
                             html.Div([
-                                html.H3('YTD all Vanguard Stocks Normalized Corrrelations'),
+                                html.H3('YTD all Vanguard ETFs Normalized Corrrelations'),
                                 dcc.Graph(id='g6', figure=figure5)
                             ], className="six columns", style={'vertical-align': 'middle', 'width':'100%'}),
 
